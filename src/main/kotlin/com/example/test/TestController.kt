@@ -1,5 +1,6 @@
 package com.example.test
 
+import com.example.test.entity.ApiResponse
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.RequestMapping
@@ -15,5 +16,10 @@ class TestController {
     @GetMapping("/hello")
     fun hello(name: String):ResponseEntity<String>{
         return ResponseEntity.ok("hello,${name}")
+    }
+    
+    @GetMapping("/helloResponse")
+    fun helloResponse(name: String):ApiResponse<String>{
+        return ApiResponse.successfulResponse("hello,$name")
     }
 }
